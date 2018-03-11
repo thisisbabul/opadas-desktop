@@ -151,7 +151,7 @@ public class AdminProfile extends JFrame implements ActionListener {
 					if (isInserted) {
 						JOptionPane.showMessageDialog(this, "Admin user is created");
 						this.dispose();
-						DoctorProfile frame = new DoctorProfile("Admin - Profile");
+						AdminProfile frame = new AdminProfile("Admin - Profile");
 						frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 						frame.setVisible(true);
 					} else {
@@ -171,7 +171,7 @@ public class AdminProfile extends JFrame implements ActionListener {
 			if (isUpdated) {
 				JOptionPane.showMessageDialog(this, "Admin user is updated");
 				this.dispose();
-				DoctorProfile frame = new DoctorProfile("Admin - Profile");
+				AdminProfile frame = new AdminProfile("Admin - Profile");
 				frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				frame.setVisible(true);
 			} else {
@@ -187,7 +187,7 @@ public class AdminProfile extends JFrame implements ActionListener {
 			if (isDeleted) {
 				JOptionPane.showMessageDialog(this, "Admin user is deleted");
 				this.dispose();
-				DoctorProfile frame = new DoctorProfile("Admin - Profile");
+				AdminProfile frame = new AdminProfile("Admin - Profile");
 				frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				frame.setVisible(true);
 			} else {

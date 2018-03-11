@@ -42,7 +42,7 @@ public class DoctorDashboard extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
 					if(e.getActionCommand().equals("Patient Queue")) {
-						PatientQueue frame = new PatientQueue("Patient Queue");
+						DoctorPatientQueue frame = new DoctorPatientQueue("Patient Queue");
 						Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 						int height = screenSize.height;
 						int width = screenSize.width;

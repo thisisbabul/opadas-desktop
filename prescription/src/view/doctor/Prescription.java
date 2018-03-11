@@ -1,9 +1,16 @@
 package view.doctor;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -15,7 +22,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 
-public class Prescription extends JFrame {
+public class Prescription extends JFrame implements ActionListener{
 
 	private JLabel[] lblMedicineName, lblCategory,lblDay, lblMeasure, lblTime, lblComments, lblAdvice;
 	private JTextField[] tfMedicineName, tfComments;
@@ -25,15 +32,16 @@ public class Prescription extends JFrame {
 	private JCheckBox[] chkbm, chkbd, chkbn;
 	private JTextArea[] taAdvice, tacomments;
 	private ButtonGroup bg;
+	private JButton btnPres;
 
 	private JPanel[] common, category_panel, time_panel;
-	//private Container c;
+	private Container c;
 
 	public Prescription(String msg) {
 		super(msg);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		// c = this.getContentPane();
+		c = this.getContentPane();
 		setLayout(new FlowLayout());
 		lblMedicineName = new JLabel[5];
 		lblAdvice = new JLabel[5];
@@ -44,6 +52,9 @@ public class Prescription extends JFrame {
 		lblComments = new JLabel[5];
 		lblAdvice = new JLabel[5];
 		
+		btnPres = new JButton("Prescriped");
+		
+		btnPres.addActionListener(this);
 		tfMedicineName = new JTextField[5];
 		tfComments = new JTextField[5];
 
@@ -140,7 +151,8 @@ public class Prescription extends JFrame {
 			common[i].setBorder(new BevelBorder(BevelBorder.RAISED));
 			add(common[i]);
 		}
-		
+		BorderLayout b = new BorderLayout();
+		c.add(btnPres, b.WEST);
 	}
 
 	public static void main(String[] args) {
@@ -148,6 +160,21 @@ public class Prescription extends JFrame {
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setVisible(true);
 		//frame.setBounds(300, 200, 500, 800);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource().equals(btnPres)) {
+			this.dispose();
+			DoctorPatientQueue frame = new DoctorPatientQueue("Patient Queue");
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			int height = screenSize.height;
+			int width = screenSize.width;
+			frame.setSize(width/2, height/2);
+			frame.setLocationRelativeTo(null);
+			frame.setVisible(true);
+		}
 	}
 
 }

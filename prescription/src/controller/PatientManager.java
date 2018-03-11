@@ -45,9 +45,9 @@ public class PatientManager {
 	}
 
 
-	public boolean delete(Doctor doctor) {
+	public boolean delete(Patient patient) {
 		// TODO Auto-generated method stub
-		return pd.delete(doctor);
+		return pd.delete(patient);
 	}
 
 

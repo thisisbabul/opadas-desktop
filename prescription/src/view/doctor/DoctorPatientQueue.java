@@ -1,4 +1,4 @@
-package view.patient;
+package view.doctor;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -17,7 +17,7 @@ import model.Patient;
 import view.common.LoginForm;
 import view.doctor.Prescription;
 
-public class PatientQueue extends JFrame implements ActionListener{
+public class DoctorPatientQueue extends JFrame implements ActionListener{
 	
 	private JButton[] buttons;
 	private JPanel common;
@@ -26,8 +26,7 @@ public class PatientQueue extends JFrame implements ActionListener{
 	private JButton btnLogout;
 	private JLabel lbl;
 	
-	
-	public PatientQueue(String msg) {
+	public DoctorPatientQueue(String msg) {
 		super(msg);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setLayout(null);
@@ -48,6 +47,17 @@ public class PatientQueue extends JFrame implements ActionListener{
 		for(Patient patient: patientList) {
 			buttons[i] = new JButton(i+". "+patient.getName());
 			common.add(buttons[i]);
+			buttons[i].addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					Prescription frame = new Prescription("Prescription");
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+					frame.setVisible(true);
+					pm.delete(patient);
+				}
+			});
 			i++;
 		}
 		common.add(lbl);
@@ -59,7 +69,7 @@ public class PatientQueue extends JFrame implements ActionListener{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		PatientQueue frame = new PatientQueue("Patient Queue");
+		DoctorPatientQueue frame = new DoctorPatientQueue("Patient Queue");
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int height = screenSize.height;
 		int width = screenSize.width;

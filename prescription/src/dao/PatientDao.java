@@ -86,7 +86,7 @@ public class PatientDao {
 		return false;
 	}
 
-	public boolean delete(Doctor doctor) {
+	public boolean delete(Patient patient) {
 
 		Connection conn = null;
 		Statement stm = null;
@@ -96,7 +96,7 @@ public class PatientDao {
 			conn = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
 			stm = conn.createStatement();
 
-			int count = stm.executeUpdate("delete from doctor where id = " + doctor.getId());
+			int count = stm.executeUpdate("delete from patient where id = " + patient.getId());
 			if (count > 0) {
 				return true;
 			}

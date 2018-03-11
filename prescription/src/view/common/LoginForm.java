@@ -35,7 +35,6 @@ public class LoginForm extends JFrame implements ActionListener {
 	private AdminManager am;
 	private PatientManager pm;
 	private DoctorManager dm;
-	private PatientQueue pq;
 	
 	private String username = null;
 	private String password = null;
@@ -47,7 +46,6 @@ public class LoginForm extends JFrame implements ActionListener {
 		am = new AdminManager();
 		pm = new PatientManager();
 		dm = new DoctorManager();
-		pq = new PatientQueue();
 		// UI
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new FlowLayout());
